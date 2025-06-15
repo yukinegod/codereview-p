@@ -1,0 +1,44 @@
+.link {
+  line-height: 22px; /* 122.222% */
+  letter-spacing: -0.5px;
+}
+
+.text {
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.5px;
+}
+
+.testText {
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.5px;
+}
+
+.logo {
+  line-height: 30px; /* 100% */
+  letter-spacing: -1px;
+}
+
+.phone {
+  line-height: 26px; /* 108.333% */
+  letter-spacing: -0.5px;
+}
+
+.email {
+  line-height: 22px; /* 122.222% */
+  letter-spacing: -0.5px;
+}
+
+.ownerText {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
+
+.copyrightText {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
+
+.policyText {
+  line-height: 22px; /* 122.222% */
+  letter-spacing: -0.5px;
+}

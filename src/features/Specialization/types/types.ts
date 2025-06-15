@@ -1,0 +1,10 @@
+export type ItemType =
+  | 'vacanciesPopup'
+  | 'tasksPopup'
+  | 'itEventsPopup'
+  | 'recruitersContactsPopup'
+  | 'resumesPopup'
+  | 'skillsPopup'
+  | 'interviewsPopup'
+  | 'petProjectsPopup'
+  | 'aiToolsPopup'

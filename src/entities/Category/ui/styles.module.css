@@ -1,0 +1,19 @@
+.category {
+  line-height: 26px; /* 118.182% */
+  letter-spacing: -0.5px;
+}
+
+.categoryPopup {
+  line-height: 22px; /* 118.182% */
+  letter-spacing: -0.5px;
+}
+
+.activeCategory {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    85deg,
+    #2093fe 0.83%,
+    rgba(194, 23, 254, 0.9) 91.48%
+  );
+}

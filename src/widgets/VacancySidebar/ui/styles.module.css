@@ -1,0 +1,24 @@
+.companyName {
+  line-height: 22px; /* 122.222% */
+  letter-spacing: -0.5px;
+}
+
+.location {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
+
+.similarJobs {
+  line-height: 20px; /* 111.111% */
+  letter-spacing: -0.5px;
+}
+
+.jobTitle {
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.5px;
+}
+
+.jobCompanyName {
+  line-height: 18px; /* 112.5% */
+  letter-spacing: -0.5px;
+}

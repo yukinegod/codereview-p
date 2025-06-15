@@ -1,0 +1,38 @@
+.text {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
+
+.sophiBlock {
+  background: rgba(249, 227, 168, 0.33);
+  line-height: 20px; /* 111.111% */
+  letter-spacing: -0.5px;
+}
+
+.sophiInterviews {
+  background: var(
+    --gradient-button,
+    linear-gradient(
+      89deg,
+      rgba(244, 184, 184, 0.4) -3.7%,
+      rgba(227, 179, 234, 0.4) 31.39%,
+      rgba(197, 201, 241, 0.4) 74.78%
+    ),
+    #fff
+  );
+}
+
+.sophiInterviewsSide {
+  line-height: 22px; /* 125% */
+  letter-spacing: -0.5px;
+  background: var(
+    --gradient-button,
+    linear-gradient(
+      89deg,
+      rgba(244, 184, 184, 0.4) -3.7%,
+      rgba(227, 179, 234, 0.4) 31.39%,
+      rgba(197, 201, 241, 0.4) 74.78%
+    ),
+    #fff
+  );
+}

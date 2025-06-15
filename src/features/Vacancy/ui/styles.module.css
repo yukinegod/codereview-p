@@ -1,0 +1,25 @@
+.text {
+  line-height: 16px; /* 114.286% */
+  letter-spacing: -0.5px;
+}
+
+.text2 {
+  line-height: 22px; /* 110% */
+  letter-spacing: -0.5px;
+}
+
+.button {
+  background: var(
+    --gradient-button,
+    linear-gradient(
+      89deg,
+      rgba(244, 184, 184, 0.4) -3.7%,
+      rgba(227, 179, 234, 0.4) 31.39%,
+      rgba(197, 201, 241, 0.4) 74.78%
+    ),
+    #fff
+  );
+
+  line-height: 22px; /* 122.222% */
+  letter-spacing: -0.5px;
+}

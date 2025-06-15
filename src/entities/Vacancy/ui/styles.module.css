@@ -1,0 +1,25 @@
+.date {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
+
+.companyName {
+  line-height: 22px; /* 122.222% */
+  letter-spacing: -0.5px;
+}
+
+.location {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
+
+.text {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
+
+.title {
+  overflow: hidden;
+  line-height: 26px; /* 118.182% */
+  letter-spacing: -0.5px;
+}

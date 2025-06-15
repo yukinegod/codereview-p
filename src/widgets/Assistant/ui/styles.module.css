@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 52px; /* 104% */
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 118.182% */
+  letter-spacing: -0.5px;
+}

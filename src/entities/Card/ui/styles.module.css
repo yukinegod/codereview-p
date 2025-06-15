@@ -1,0 +1,27 @@
+.cardText {
+  line-height: 20px; /* 100% */
+  letter-spacing: -0.5px;
+}
+
+.tasksBg {
+  background: linear-gradient(
+    52deg,
+    rgba(244, 184, 184, 0.4) 2.72%,
+    rgba(227, 234, 179, 0.4) 45.73%,
+    rgba(197, 241, 208, 0.4) 98.91%
+  );
+}
+
+.itEventsBg {
+  background: linear-gradient(
+    89deg,
+    rgba(244, 184, 184, 0.4) -3.7%,
+    rgba(227, 179, 234, 0.4) 31.39%,
+    rgba(197, 201, 241, 0.4) 74.78%
+  );
+}
+
+.description {
+  line-height: 20px; /* 125% */
+  letter-spacing: -0.5px;
+}
