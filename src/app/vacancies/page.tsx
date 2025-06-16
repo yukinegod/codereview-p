@@ -1,5 +1,10 @@
 import Vacancies from '@/pages/Vacancies'
 
-export default async function VacanciesPage({ searchParams }: any) {
-  return <Vacancies searchParams={searchParams} />
+type PageProps = {
+  searchParams: Promise<{ page: string }>
+}
+
+export default async function VacanciesPage({ searchParams }: PageProps) {
+  const { page } = await searchParams
+  return <Vacancies page={page} />
 }

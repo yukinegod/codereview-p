@@ -3,10 +3,8 @@
 import Image from 'next/image'
 import copy from '../../../../../public/copy.svg'
 import styles from './styles.module.css'
-import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
-import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
-import java from 'react-syntax-highlighter/dist/esm/languages/hljs/java'
-import { atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+// import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 type Props = {
   title: string
@@ -14,9 +12,6 @@ type Props = {
   code: string
   marginTop?: number
 }
-
-SyntaxHighlighter.registerLanguage('java', java)
-SyntaxHighlighter.registerLanguage('js', js)
 
 export default function CodeExample({
   title,
@@ -57,7 +52,7 @@ export default function CodeExample({
         <div className='mt-[20px] overflow-x-auto'>
           <SyntaxHighlighter
             language={lang}
-            style={atomOneLight}
+            // style={oneLight}
             customStyle={{
               background: 'transparent',
               fontSize: 14,

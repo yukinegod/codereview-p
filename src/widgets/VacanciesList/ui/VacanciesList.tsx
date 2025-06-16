@@ -1,6 +1,6 @@
 'use client'
 
-import Vacancy from '@/entities/Vacancy/ui/Vacancy'
+import VacancyItem from '@/entities/Vacancy/ui/VacancyItem'
 import useFilterStore from '@/features/Filters/model/useFilterStore'
 
 export default function VacanciesList({ vacancies }: any) {
@@ -38,7 +38,7 @@ export default function VacanciesList({ vacancies }: any) {
     <div className='grid grid-cols-2 grid-rows-4 gap-4 w-[1022px] mt-[40px]'>
       {filtered &&
         filtered.map((vacancy: any) => (
-          <Vacancy
+          <VacancyItem
             key={vacancy.id}
             id={vacancy.id}
             title={vacancy.title}

@@ -10,15 +10,13 @@ import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
 import { TOTAL_PAGES, ITEMS_PER_PAGE } from '@/shared/config/paginationMock'
 
 type Props = {
-  searchParams: {
-    page?: string
-  }
+  page?: string
 }
 
-export default async function Vacancies({ searchParams }: Props) {
+export default async function Vacancies({ page }: Props) {
   const { vacancies } = await fetchVacancies()
 
-  const currentPage = Number(await searchParams.page) || 1
+  const currentPage = Number(page) || 1
   const skip = (currentPage - 1) * ITEMS_PER_PAGE
 
   return (

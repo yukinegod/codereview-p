@@ -29,7 +29,7 @@ type Props = {
   customIcon?: string
 }
 
-export default function Vacancy({
+export default function VacancyItem({
   id,
   title,
   remote,
