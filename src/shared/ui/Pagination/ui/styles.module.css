@@ -1,0 +1,19 @@
+.pagination {
+  line-height: 22px; /* 122.222% */
+  letter-spacing: -0.5px;
+}
+
+.activePage {
+  border-radius: 10px;
+  background: var(
+    --gradient-secondary,
+    linear-gradient(
+      67deg,
+      rgba(244, 184, 184, 0.4) 15.02%,
+      rgba(234, 214, 181, 0.4) 30.83%,
+      rgba(227, 234, 179, 0.4) 46.3%,
+      rgba(197, 241, 208, 0.4) 84.98%
+    ),
+    #fff
+  );
+}

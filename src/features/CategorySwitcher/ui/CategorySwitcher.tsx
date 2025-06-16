@@ -8,20 +8,20 @@ type Props = {
 
 export default function CategorySwitcher({ type = 'default' }: Props) {
   return (
-    <div
+    <ul
       className={`flex items-start ${
         type === 'default'
           ? 'w-[649px] h-[38px] mt-[80px]'
           : 'w-[536px] h-[34px] mb-[30px]'
       } gap-[10px] select-none`}
+      role='list'
+      aria-label='Список категорий'
     >
       {CATEGORIES.map((category, index) => (
-        <Category
-          title={category.title as CategoryType}
-          type={type}
-          key={index}
-        />
+        <li role='listitem' key={index}>
+          <Category title={category.title as CategoryType} type={type} />
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }

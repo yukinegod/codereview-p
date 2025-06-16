@@ -15,10 +15,21 @@ const images = {
   linked,
 }
 
+const labels: Record<SocialType, string> = {
+  tg: 'Telegram',
+  yt: 'YouTube',
+  linked: 'LinkedIn',
+}
+
 export default function SocialItem({ type }: Props) {
   return (
-    <Link href='/' className='select-none'>
-      <Image src={images[type]} alt={`${type} icon`} />
+    <Link
+      href='/'
+      aria-label={`Ссылка на ${labels[type]}`}
+      title={`Перейти на ${labels[type]}`}
+      className='select-none'
+    >
+      <Image src={images[type]} alt={`${labels[type]} icon`} />
     </Link>
   )
 }

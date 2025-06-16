@@ -4,9 +4,13 @@ import styles from './styles.module.css'
 
 export default function LoginButton() {
   return (
-    <div className='flex items-center gap-[6px] min-w-[77px]'>
-      <Image src={profile} alt='login image' />
-      <p className={`text-[18px] ${styles.login}`}>Войти</p>
-    </div>
+    <button
+      type='button'
+      aria-label='Войти в профиль'
+      className='flex items-center gap-[6px] min-w-[77px]'
+    >
+      <Image src={profile} alt='Иконка профиля' />
+      <span className={`text-[18px] ${styles.login}`}>Войти</span>
+    </button>
   )
 }

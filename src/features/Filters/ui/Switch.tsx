@@ -1,20 +1,29 @@
 'use client'
 
-import { useState } from 'react'
+import useFilterStore from '../model/useFilterStore'
 
-export default function Switch() {
-  const [isOn, setIsOn] = useState(false)
+type Props = {
+  filterKey: string
+}
+
+export default function Switch({ filterKey }: Props) {
+  const { isActive, toggleRemote, toggleInternship } = useFilterStore()
+
+  const isOn = isActive(filterKey, 'true')
+
+  const handleClick = () => {
+    if (filterKey === 'remote') toggleRemote()
+    if (filterKey === 'internship') toggleInternship()
+  }
 
   return (
     <button
       type='button'
-      onClick={() => setIsOn((prev) => !prev)}
+      onClick={handleClick}
       className={`w-[36px] h-[22px] flex items-center px-[2px] border-2 rounded-[18px] flex-shrink-0 transition-colors duration-300 cursor-pointer ${
-        isOn ? ' border-black' : 'bg-transparent border-[#D4D5D7]'
+        isOn ? 'border-black' : 'bg-transparent border-[#D4D5D7]'
       }`}
-      style={{
-        backgroundColor: isOn ? '#FFFFFF' : '#FFFFFF',
-      }}
+      style={{ backgroundColor: '#FFFFFF' }}
     >
       <div
         className={`w-[14px] h-[14px] rounded-full transition-transform duration-300 ${

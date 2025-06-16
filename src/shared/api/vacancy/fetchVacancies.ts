@@ -8,7 +8,7 @@ type ApiResponse = {
 
 export async function fetchVacancies() {
   try {
-    const res = await fetch(`${API_URL}/vacancies`, {
+    const res = await fetch(`${API_URL}/vacancies?limit=8`, {
       cache: 'no-store',
     })
 

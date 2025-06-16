@@ -1,5 +1,5 @@
 import AddVacancyButton from '@/features/Vacancy/ui/AddVacancyButton'
-import { FILTERS_DEFAULT, FILTERS_INTERVIEWS } from '../config/config'
+import { VACANCIES_FILTERS, INTERVIEWS_FILTERS } from '../config/filterConfig'
 import FilterItem from './FilterItem'
 import type { FilterType } from '../types/types'
 
@@ -14,11 +14,13 @@ export default function Filters({ type = 'default' }: Props) {
         <div className='flex items-start w-[967px] h-full gap-5'>
           <AddVacancyButton />
           <div className='flex items-start w-[752px] h-full gap-[10px]'>
-            {FILTERS_DEFAULT.map((filter) => (
+            {VACANCIES_FILTERS.map((filter) => (
               <FilterItem
-                text={filter.text}
-                type={filter.type as FilterType}
                 key={filter.id}
+                id={filter.id}
+                label={filter.label}
+                type={filter.type as FilterType}
+                options={filter.options}
               />
             ))}
           </div>
@@ -29,11 +31,13 @@ export default function Filters({ type = 'default' }: Props) {
     return (
       <div className='w-[1022px] h-[46px] mt-[50px]'>
         <div className='flex items-start h-full gap-[10px]'>
-          {FILTERS_INTERVIEWS.map((filter) => (
+          {INTERVIEWS_FILTERS.map((filter) => (
             <FilterItem
-              text={filter.text}
-              type={filter.type as FilterType}
               key={filter.id}
+              id={filter.id}
+              label={filter.label}
+              type={filter.type as FilterType}
+              options={filter.options}
             />
           ))}
         </div>

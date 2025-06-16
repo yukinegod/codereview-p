@@ -39,13 +39,14 @@ export default function Card({ type, title, description, index }: Props) {
   const isHovered = hoveredCardId === index
 
   return (
-    <Link href={`/${type}`}>
-      <motion.div
+    <Link href={`/${type}`} title={`Перейти в раздел: ${title}`}>
+      <motion.article
         className={`relative flex flex-col justify-between min-w-[249px] h-[280px] max-h-[280px] pb-[20px] px-[20px] rounded-[6px] cursor-pointer select-none overflow-hidden
         ${type === 'tasks' ? `${styles.tasksBg}` : ''}
         ${type === 'itEvents' ? `${styles.itEventsBg}` : ''}`}
         onMouseEnter={() => setHoveredCardId(index)}
         onMouseLeave={() => setHoveredCardId(null)}
+        aria-label={`Карточка категории: ${title}`}
       >
         <motion.div
           className='absolute top-0 left-0 pointer-events-none'
@@ -62,7 +63,7 @@ export default function Card({ type, title, description, index }: Props) {
             transform: 'rotate(45deg)',
           }}
         >
-          <Image src={grid} alt='grid' />
+          <Image src={grid} alt='Графическая сетка' />
         </motion.div>
 
         <motion.div
@@ -71,7 +72,7 @@ export default function Card({ type, title, description, index }: Props) {
           transition={{ duration: 0.2 }}
           className='z-10'
         >
-          <Image src={images[type]} alt='card icon' />
+          <Image src={images[type]} alt={`Иконка категории: ${title}`} />
         </motion.div>
 
         <motion.p
@@ -86,12 +87,12 @@ export default function Card({ type, title, description, index }: Props) {
           {description}
         </motion.p>
 
-        <p
+        <h2
           className={`font-semibold text-[20px] max-w-[173px] tracking-[-0.5px] z-10 ${styles.cardText}`}
         >
           {title}
-        </p>
-      </motion.div>
+        </h2>
+      </motion.article>
     </Link>
   )
 }

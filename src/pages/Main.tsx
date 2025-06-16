@@ -2,7 +2,6 @@ import CardList from '@/entities/Card/ui/CardList'
 import CategorySwitcher from '@/features/CategorySwitcher/ui/CategorySwitcher'
 import Assistant from '@/widgets/Assistant/ui/Assistant'
 import Footer from '@/widgets/Footer/ui/Footer'
-import FooterAnimation from '@/widgets/FooterAnimation/ui/FooterAnimation'
 import RecruitmentSection from '@/widgets/RecruitmentSection/ui/RecruitmentSection'
 import TopMenu from '@/widgets/TopMenu/ui/TopMenu'
 
@@ -14,7 +13,6 @@ export default function Main() {
       <CategorySwitcher />
       <CardList />
       <RecruitmentSection />
-      <FooterAnimation />
       <Footer />
     </div>
   )

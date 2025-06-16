@@ -17,33 +17,35 @@ export default function Avatars() {
       initial={{ y: 0 }}
       animate={{ y: isHovered ? 5 : 0 }}
       transition={{ duration: 0.2 }}
+      aria-hidden='true'
+      role='presentation'
     >
       <Image
         width={40}
         height={40}
         src={avatar1}
-        alt='avatar'
+        alt='Кандидат 1'
         className='rounded-full border-2 border-white'
       />
       <Image
         width={40}
         height={40}
         src={avatar2}
-        alt='avatar'
+        alt='Кандидат 2'
         className='-ml-4 rounded-full border-2 border-white'
       />
       <Image
         width={40}
         height={40}
         src={avatar3}
-        alt='avatar'
+        alt='Кандидат 3'
         className='-ml-4 rounded-full border-2 border-white'
       />
       <Image
         width={40}
         height={40}
         src={count}
-        alt='count'
+        alt='Еще 293+ резюме'
         className='-ml-4 rounded-full border-2 border-white'
       />
     </motion.div>

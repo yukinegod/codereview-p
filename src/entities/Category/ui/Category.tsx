@@ -11,19 +11,24 @@ type Props = {
 
 export default function Category({ title, type = 'default' }: Props) {
   const { activeCategory, setActiveCategory } = useCategoryStore()
+  const isActive = activeCategory === title
 
   return (
-    <p
+    <button
+      type='button'
+      role='menuitemradio'
+      aria-checked={isActive}
+      onClick={() => setActiveCategory(title)}
       className={`flex ${
         type === 'default'
           ? `text-[22px] px-[15px] ${styles.category}`
           : `text-[18px] px-[12px] ${styles.categoryPopup}`
       } pt-[5px] pb-[7px] h-full cursor-pointer shrink-0 ${
-        activeCategory === title && `${styles.activeCategory} text-white`
+        isActive && `${styles.activeCategory} text-white`
       }`}
-      onClick={() => setActiveCategory(title)}
+      aria-label={`Выбрать категорию ${title}`}
     >
       {title}
-    </p>
+    </button>
   )
 }

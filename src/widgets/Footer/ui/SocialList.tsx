@@ -4,10 +4,15 @@ import type { SocialType } from '../types/types'
 
 export default function SocialList() {
   return (
-    <div className='flex gap-[10px]'>
+    <ul
+      aria-label='Социальные сети'
+      className='flex gap-[10px] list-none p-0 m-0'
+    >
       {SOCIALS.map((social) => (
-        <SocialItem type={social.type as SocialType} key={social.id} />
+        <li key={social.id}>
+          <SocialItem type={social.type as SocialType} />
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }

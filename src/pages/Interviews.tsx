@@ -7,11 +7,21 @@ import {
   INTERVIEWS_TITLE_SECOND,
 } from '@/shared/config/config'
 import QuestionList from '@/entities/Question/ui/QuestionList'
-import FooterAnimation from '@/widgets/FooterAnimation/ui/FooterAnimation'
 import Footer from '@/widgets/Footer/ui/Footer'
 import Pagination from '@/shared/ui/Pagination/ui/Pagination'
+import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
+import { TOTAL_PAGES, ITEMS_PER_PAGE } from '@/shared/config/paginationMock'
 
-export default function Interviews() {
+type Props = {
+  searchParams: {
+    page?: string
+  }
+}
+
+export default async function Interviews({ searchParams }: Props) {
+  const currentPage = Number(await searchParams.page) || 1
+  const skip = (currentPage - 1) * ITEMS_PER_PAGE
+
   return (
     <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] pb-[2px] overflow-x-hidden'>
       <TopMenu type='secondary' buttonType='questionSimulator' />
@@ -22,8 +32,12 @@ export default function Interviews() {
       />
       <Filters type='interviews' />
       <QuestionList />
-      <Pagination />
-      <FooterAnimation />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={TOTAL_PAGES}
+        basePath='/interviews'
+      />
+      <SeoKeysList type='interviews' />
       <Footer />
     </div>
   )

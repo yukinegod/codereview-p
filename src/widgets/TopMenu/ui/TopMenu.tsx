@@ -19,38 +19,56 @@ export default function TopMenu({
   href = '/',
 }: Props) {
   const renderButton = () => {
-    if (buttonType === 'autoResponses') return <AutoResponsesButton />
-    if (buttonType === 'questionSimulator') return <QuestionSimulatorButton />
+    if (buttonType === 'autoResponses') {
+      return <AutoResponsesButton />
+    }
+    if (buttonType === 'questionSimulator') {
+      return <QuestionSimulatorButton />
+    }
     return null
   }
 
   if (type === 'main') {
     return (
-      <div
+      <nav
+        role='navigation'
+        aria-label='Главное меню'
         className={`flex h-[56px] rounded-[18px] gap-5 py-[17px] px-5 select-none fixed z-50 ${styles.topBar}`}
       >
-        <Logo type={type} />
-        <Specialization />
+        <div className='flex items-center' aria-hidden='false'>
+          <Logo type={type} />
+        </div>
+        <div className='flex items-center' aria-hidden='false'>
+          <Specialization />
+        </div>
         <LoginButton />
-      </div>
+      </nav>
     )
   }
 
   if (type === 'secondary' || type === 'arrow') {
     return (
-      <div className='flex fixed z-50 gap-[10px] items-center'>
+      <nav
+        role='navigation'
+        aria-label='Навигация по разделу'
+        className='flex fixed z-50 gap-[10px] items-center'
+      >
         {type === 'arrow' && <BackArrow href={href || '/'} />}
 
         <div
           className={`flex h-[56px] rounded-[18px] gap-5 py-[17px] px-5 select-none ${styles.topBar}`}
         >
-          <Logo type={type} />
-          <Specialization type={type} />
+          <div className='flex items-center' aria-hidden='false'>
+            <Logo type={type} />
+          </div>
+          <div className='flex items-center' aria-hidden='false'>
+            <Specialization type={type} />
+          </div>
           <LoginButton />
         </div>
 
         {renderButton()}
-      </div>
+      </nav>
     )
   }
 

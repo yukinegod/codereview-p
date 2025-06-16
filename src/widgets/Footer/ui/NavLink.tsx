@@ -8,7 +8,11 @@ type Props = {
 
 export default function NavLink({ to, text }: Props) {
   return (
-    <Link href={to} className={`text-[#F6F6F6] text-[18px] ${styles.link}`}>
+    <Link
+      href={to}
+      className={`text-[#F6F6F6] text-[18px] ${styles.link}`}
+      title={`Перейти на страницу: ${text}`}
+    >
       {text}
     </Link>
   )

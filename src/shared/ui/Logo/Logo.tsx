@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import styles from './styles.module.css'
 import { TopMenuType } from '@/shared/types/types'
+import styles from './styles.module.css'
 
 type Props = {
   type: TopMenuType
@@ -8,8 +8,13 @@ type Props = {
 
 export default function Logo({ type = 'main' }: Props) {
   return (
-    <Link href='/'>
-      <p
+    <Link
+      href='/'
+      aria-label='На главную страницу CodeReview'
+      title='Перейти на главную'
+      rel='home'
+    >
+      <strong
         className={`text-[22px] font-semibold flex items-center h-full tracking-[-1px] w-[149px] ${
           type === 'main' ? styles.gradient : 'text-[#636469]'
         }`}
@@ -17,7 +22,7 @@ export default function Logo({ type = 'main' }: Props) {
         {'<'}
         <span className='font-normal'>code</span>
         {'review/>'}
-      </p>
+      </strong>
     </Link>
   )
 }

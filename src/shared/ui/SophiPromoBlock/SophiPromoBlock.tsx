@@ -15,6 +15,7 @@ import sophiCodeWhite from '../../../../public/sophiCodeWhite.svg'
 import sophiCalendarWhite from '../../../../public/sophiCalendarWhite.svg'
 import sophiSparklesWhite from '../../../../public/sophiSparklesWhite.svg'
 import styles from './styles.module.css'
+import Link from 'next/link'
 
 type Props = {
   type: 'vacancy' | 'vacanciesSide' | 'interviews' | 'interviewsSide'
@@ -23,7 +24,12 @@ type Props = {
 export default function SophiPromoBlock({ type }: Props) {
   if (type === 'vacancy') {
     return (
-      <div className='flex items-center px-[15px] pr-[30px] mt-[30px] h-[65px] gap-[15px] bg-[#ECF0FF] rounded-[12px] select-none'>
+      <Link
+        href='https://jobs.yourcodereview.com/ai/'
+        target='_blank'
+        rel='noopener noreferrer'
+        className='flex items-center px-[15px] pr-[30px] mt-[30px] h-[65px] gap-[15px] bg-[#ECF0FF] rounded-[12px] select-none'
+      >
         <Image
           width={49}
           height={49}
@@ -46,11 +52,14 @@ export default function SophiPromoBlock({ type }: Props) {
           alt='link icon'
           className='w-[16px] h-[16px]'
         />
-      </div>
+      </Link>
     )
   } else if (type === 'vacanciesSide') {
     return (
-      <div
+      <Link
+        href='https://jobs.yourcodereview.com/ai/'
+        target='_blank'
+        rel='noopener noreferrer'
         className={`relative flex flex-col w-[300px] h-[245px] rounded-[8px] p-[20px] select-none overflow-hidden ${styles.sophiBlock}`}
       >
         <Image src={yellowGrid} alt='grid' className='absolute top-0 left-0' />
@@ -97,11 +106,14 @@ export default function SophiPromoBlock({ type }: Props) {
             className='w-[16px] h-[16px]'
           />
         </div>
-      </div>
+      </Link>
     )
   } else if (type === 'interviews') {
     return (
-      <div
+      <Link
+        href='https://jobs.yourcodereview.com/ai/'
+        target='_blank'
+        rel='noopener noreferrer'
         className={`flex items-center justify-between p-[15px] pr-[20px] mt-[20px] h-[65px] gap-[15px] rounded-[8px] select-none ${styles.sophiInterviews}`}
       >
         <Image
@@ -126,11 +138,14 @@ export default function SophiPromoBlock({ type }: Props) {
           alt='link icon'
           className='w-[16px] h-[16px]'
         />
-      </div>
+      </Link>
     )
   } else if (type === 'interviewsSide') {
     return (
-      <div
+      <Link
+        href='https://jobs.yourcodereview.com/ai/'
+        target='_blank'
+        rel='noopener noreferrer'
         className={`relative flex flex-col w-[300px] h-[245px] rounded-[8px] p-[20px] select-none overflow-hidden ${styles.sophiInterviewsSide}`}
       >
         <Image src={whiteGrid} alt='grid' className='absolute top-0 left-0' />
@@ -176,7 +191,7 @@ export default function SophiPromoBlock({ type }: Props) {
             className='w-[16px] h-[16px]'
           />
         </div>
-      </div>
+      </Link>
     )
   }
 }

@@ -11,9 +11,9 @@ import {
   WE_OFFER,
 } from '@/widgets/AboutVacancy/config/config'
 import SophiPromoBlock from '@/shared/ui/SophiPromoBlock/SophiPromoBlock'
-import FooterAnimation from '@/widgets/FooterAnimation/ui/FooterAnimation'
 import Footer from '@/widgets/Footer/ui/Footer'
 import VacancySidebar from '@/widgets/VacancySidebar/ui/VacancySidebar'
+import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
 
 type Props = {
   params: { id: string }
@@ -52,7 +52,7 @@ export default async function Vacancy({ params }: Props) {
           image='https://placekitten.com/402/602'
         />
       </div>
-      <FooterAnimation />
+      <SeoKeysList type='vacancy' />
       <Footer />
     </div>
   )

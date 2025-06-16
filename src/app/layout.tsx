@@ -8,8 +8,36 @@ const wixMadeforDisplay = Wix_Madefor_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'Codereview',
-  description: 'none',
+  title: 'Codereview — Поиск работы и стажировок в IT',
+  description:
+    'Платформа для быстрого поиска IT-вакансий, подготовки к собеседованиям и автооткликов.',
+  keywords: [
+    'вакансии',
+    'стажировки',
+    'собеседование',
+    'поиск работы',
+    'IT',
+    'Codereview',
+  ],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  openGraph: {
+    title: 'Codereview — IT-вакансии и стажировки',
+    description:
+      'Поиск работы, подготовка к собеседованиям, автоотклики — всё на одной платформе.',
+    type: 'website',
+    locale: 'ru_RU',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Codereview — IT-вакансии и стажировки',
+    description:
+      'Платформа для быстрого поиска работы и подготовки к собеседованиям.',
+  },
+  robots: 'index, follow',
 }
 
 export default function RootLayout({
@@ -18,11 +46,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang='en'
-      className={`${wixMadeforDisplay.variable} antialiased w-screen h-screen`}
-    >
-      <body>{children}</body>
+    <html lang='ru' className={`${wixMadeforDisplay.variable} antialiased`}>
+      <body>
+        <main>{children}</main>
+      </body>
     </html>
   )
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import getFirstTag from '@/shared/utils/getFirstTag'
 import styles from './styles.module.css'
 
 type Props = {
@@ -22,7 +23,7 @@ export default function QuestionItem({
         {question}
       </p>
       <p className={`text-[#636469] text-[18px] font-semibold ${styles.stack}`}>
-        {stack}
+        {getFirstTag(stack)}
         <span className='text-[#ACAEB2] mx-[7px]'>•</span>
         {frequency} упоминаний
       </p>

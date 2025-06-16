@@ -37,19 +37,25 @@ export default function Specialization({ type = 'main' }: Props) {
 
   return (
     <div ref={containerRef} className='relative'>
-      <div
-        className={`flex items-center justify-center h-full gap-[6px] cursor-pointer ${styles.specialization}`}
+      <button
+        type='button'
+        aria-haspopup='menu'
+        aria-expanded={isOpen}
+        aria-label='Выбрать специализацию'
         onClick={() => setIsOpen((prev) => !prev)}
+        className={`flex items-center justify-center h-full gap-[6px] cursor-pointer ${styles.specialization}`}
       >
-        <Image src={itemMenu} alt='menu image' />
-        <p className='font-medium text-[18px]'>
+        <Image src={itemMenu} alt='Меню специализаций' />
+        <span className='font-medium text-[18px]'>
           {type !== 'main' ? activeCategory : 'Специализация'}
-        </p>
-        <Image src={arrow} alt='arrow image' />
-      </div>
+        </span>
+        <Image src={arrow} alt='Открыть список' />
+      </button>
 
       {isOpen && (
-        <div
+        <nav
+          role='menu'
+          aria-label='Список специализаций'
           className={`fixed flex flex-col p-[20px] top-[70px] left-1/2 w-[584px] h-[270px] z-50
                -translate-x-1/2 ${styles.popup}`}
           style={{
@@ -57,6 +63,7 @@ export default function Specialization({ type = 'main' }: Props) {
           }}
         >
           <CategorySwitcher type='popup' />
+
           <div className='flex gap-[80px]'>
             <PopupList>
               {FIRST_COLUMN_ITEMS.map((item) => (
@@ -80,7 +87,7 @@ export default function Specialization({ type = 'main' }: Props) {
               ))}
             </PopupList>
           </div>
-        </div>
+        </nav>
       )}
     </div>
   )

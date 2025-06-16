@@ -1,4 +1,6 @@
-.footer {
+.footerAnimation {
+  line-height: 18px;
+  letter-spacing: -0.5px;
   background: var(
     --gradient-secondary,
     linear-gradient(
@@ -10,4 +12,21 @@
     ),
     #fff
   );
+}
+
+.marqueeInner {
+  display: flex;
+  width: fit-content;
+  animation: marquee 40s linear infinite;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

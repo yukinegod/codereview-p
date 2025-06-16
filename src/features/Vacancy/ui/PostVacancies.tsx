@@ -11,10 +11,11 @@ export default function PostVacancies() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <motion.div
+    <motion.article
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className='relative w-[249px] h-[157px] rounded-[6px] overflow-hidden'
+      aria-label='Блок размещения вакансии'
     >
       <motion.div
         className='absolute inset-0 z-50 pointer-events-none'
@@ -24,7 +25,8 @@ export default function PostVacancies() {
       >
         <Image
           src={bgShades}
-          alt='background shades'
+          alt=''
+          aria-hidden='true'
           fill
           className='object-cover object-center'
         />
@@ -33,18 +35,20 @@ export default function PostVacancies() {
       <Link
         href='/'
         className='relative z-10 flex flex-col justify-between w-full h-full bg-[#414246] rounded-[6px] p-[20px] select-none'
+        title='Перейти к размещению вакансии'
+        aria-label='Перейти к размещению вакансии'
       >
-        <p
+        <span
           className={`flex items-center justify-center border border-white py-1 px-[10px] font-medium text-[14px] text-white outline-none w-[89px] h-[24px] rounded-full ${styles.text}`}
         >
           Бесплатно
-        </p>
-        <p
+        </span>
+        <h3
           className={`text-[20px] text-white font-semibold max-w-[108px] ${styles.text2}`}
         >
           Разместить вакансию
-        </p>
+        </h3>
       </Link>
-    </motion.div>
+    </motion.article>
   )
 }

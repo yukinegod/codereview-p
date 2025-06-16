@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import remote from '../../../../public/remote.svg'
+import office from '../../../../public/office.svg'
 import internship from '../../../../public/internship.svg'
 import salary from '../../../../public/salary.svg'
 import minSalary from '@/shared/utils/minSalary'
 import styles from './styles.module.css'
 
 type Props = {
-  type: 'remote' | 'internship' | 'salary'
+  type: 'remote' | 'office' | 'internship' | 'salary'
   salary?: string
 }
 
@@ -14,6 +15,10 @@ const data = {
   remote: {
     icon: remote,
     text: 'удаленно',
+  },
+  office: {
+    icon: office,
+    text: 'в офис',
   },
   internship: {
     icon: internship,

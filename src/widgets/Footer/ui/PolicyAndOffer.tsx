@@ -5,20 +5,25 @@ import styles from './styles.module.css'
 
 export default function PolicyAndOffer() {
   return (
-    <div className='flex gap-[10px] max-w-[358px] h-[22px]'>
+    <nav
+      aria-label='Политика и оферта'
+      className='flex gap-[10px] max-w-[358px] h-[22px]'
+    >
       <Link
         href='/'
         className={`text-[#F6F6F6] text-[18px] ${styles.policyText}`}
+        title='Политика конфиденциальности'
       >
         Политика конфиденциальности
       </Link>
-      <Image src={dot} alt='dot image' />
+      <Image src={dot} alt='' aria-hidden='true' />
       <Link
         href='/'
         className={`text-[#F6F6F6] text-[18px] ${styles.policyText}`}
+        title='Оферта'
       >
         Оферта
       </Link>
-    </div>
+    </nav>
   )
 }

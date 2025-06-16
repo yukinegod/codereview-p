@@ -33,11 +33,15 @@ const images: Record<string, StaticImport> = {
 
 export default function PopupItem({ type, to, title }: Props) {
   return (
-    <div className='flex gap-[6px]'>
-      <Image src={images[type]} alt='icon' />
-      <Link href={to} className={`text-black text-[18px] ${styles.text}`}>
+    <li role='menuitem' className='flex gap-[6px]'>
+      <Image src={images[type]} alt={`Иконка для ${title}`} />
+      <Link
+        href={to}
+        className={`text-black text-[18px] ${styles.text}`}
+        title={`Перейти на страницу: ${title}`}
+      >
         {title}
       </Link>
-    </div>
+    </li>
   )
 }

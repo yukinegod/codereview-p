@@ -1,9 +1,9 @@
 import NextQuestionButton from '@/features/QuestionNavigation/ui/NextQuestionButton'
 import CodeExample from '@/shared/ui/CodeExample/ui/CodeExample'
+import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
 import SophiPromoBlock from '@/shared/ui/SophiPromoBlock/SophiPromoBlock'
 import Text from '@/shared/ui/Text/ui/Text'
 import Footer from '@/widgets/Footer/ui/Footer'
-import FooterAnimation from '@/widgets/FooterAnimation/ui/FooterAnimation'
 import QuestionTitle from '@/widgets/QuestionTitle/ui/QuestionTitle'
 import TopMenu from '@/widgets/TopMenu/ui/TopMenu'
 
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <NextQuestionButton currentQuestionId={Number(id)} />
         </div>
       </div>
-      <FooterAnimation />
+      <SeoKeysList type='question' />
       <Footer />
     </div>
   )

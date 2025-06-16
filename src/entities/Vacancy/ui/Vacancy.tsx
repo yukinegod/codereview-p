@@ -7,6 +7,9 @@ import VacancyTags from './VacancyTags'
 import VacancyTitle from './VacancyTitle'
 import useHoverStore from '../model/useHoverStore'
 import Link from 'next/link'
+import Image from 'next/image'
+
+export type VacancyType = 'default' | 'custom'
 
 type Props = {
   id: number
@@ -19,6 +22,11 @@ type Props = {
   location: string
   publicationDate: string
   externalId: string
+  type?: VacancyType
+  backgroundImage?: string
+  textColor?: string
+  customLogo?: string
+  customIcon?: string
 }
 
 export default function Vacancy({
@@ -32,27 +40,66 @@ export default function Vacancy({
   location,
   publicationDate,
   externalId,
+  type = 'default',
+  backgroundImage,
+  textColor = 'text-black',
+  customLogo,
+  customIcon,
 }: Props) {
   const { hoveredVacancyId, setHoveredVacancyId } = useHoverStore()
 
-  return (
-    <Link
-      href={`/vacancies/${externalId}-${id}`}
-      className='flex flex-col justify-between min-w-[502px] min-h-[204px] p-[15px] cursor-default'
-      onMouseEnter={() => setHoveredVacancyId(id)}
-      onMouseLeave={() => setHoveredVacancyId(null)}
-    >
-      <div>
-        <VacancyTitle title={title} id={id} />
-        <VacancyTags remote={remote} internship={internship} salary={salary} />
-      </div>
-      <div className='flex justify-between'>
-        <div className='flex gap-[10px]'>
-          <VacancyImage logoLink={logoLink} />
-          <VacancyInfo companyName={companyName} location={location} />
+  if (type === 'custom') {
+    return (
+      <Link
+        href={`/vacancies/${externalId}-${id}`}
+        className={`flex flex-col justify-between min-w-[502px] min-h-[204px] p-[15px] cursor-default rounded-[10px] bg-cover bg-no-repeat ${textColor}`}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+        onMouseEnter={() => setHoveredVacancyId(id)}
+        onMouseLeave={() => setHoveredVacancyId(null)}
+      >
+        <div>
+          <VacancyTitle title={title} id={id} />
+          <VacancyTags
+            remote={remote}
+            internship={internship}
+            salary={salary}
+          />
         </div>
-        <VacancyDate publicationDate={publicationDate} />
-      </div>
-    </Link>
-  )
+        <div className='flex justify-between items-end'>
+          <div className='flex gap-[10px]'>
+            <VacancyImage logoLink={customLogo || logoLink} />
+            <VacancyInfo companyName={companyName} location={location} />
+          </div>
+          {customIcon && (
+            <Image src={customIcon} alt='icon' width={60} height={60} />
+          )}
+        </div>
+      </Link>
+    )
+  } else {
+    return (
+      <Link
+        href={`/vacancies/${externalId}-${id}`}
+        className='flex flex-col justify-between min-w-[502px] min-h-[204px] p-[15px] cursor-default rounded-[10px] bg-white'
+        onMouseEnter={() => setHoveredVacancyId(id)}
+        onMouseLeave={() => setHoveredVacancyId(null)}
+      >
+        <div>
+          <VacancyTitle title={title} id={id} />
+          <VacancyTags
+            remote={remote}
+            internship={internship}
+            salary={salary}
+          />
+        </div>
+        <div className='flex justify-between'>
+          <div className='flex gap-[10px]'>
+            <VacancyImage logoLink={logoLink} />
+            <VacancyInfo companyName={companyName} location={location} />
+          </div>
+          <VacancyDate publicationDate={publicationDate} />
+        </div>
+      </Link>
+    )
+  }
 }

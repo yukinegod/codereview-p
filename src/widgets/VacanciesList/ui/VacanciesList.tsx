@@ -1,14 +1,45 @@
-import Vacancy from '@/entities/Vacancy/ui/Vacancy'
-import { fetchVacancies } from '@/shared/api/vacancy/fetchVacancies'
+'use client'
 
-export default async function VacanciesList() {
-  const { vacancies } = await fetchVacancies()
+import Vacancy from '@/entities/Vacancy/ui/Vacancy'
+import useFilterStore from '@/features/Filters/model/useFilterStore'
+
+export default function VacanciesList({ vacancies }: any) {
+  const { filters } = useFilterStore()
+
+  const groupFilters = filters.reduce(
+    (acc: Record<string, string[]>, { key, value }) => {
+      if (!acc[key]) acc[key] = []
+      acc[key].push(value)
+      return acc
+    },
+    {}
+  )
+
+  const filtered = filters.length
+    ? vacancies.filter((v: any) =>
+        Object.entries(groupFilters).every(([key, values]) => {
+          const val = v[key]
+
+          if (typeof val === 'boolean') {
+            return values.includes(String(val))
+          }
+
+          if (val) {
+            const valStr = String(val).toLowerCase()
+            return values.some((v) => valStr.includes(v.toLowerCase()))
+          }
+
+          return false
+        })
+      )
+    : vacancies
 
   return (
     <div className='grid grid-cols-2 grid-rows-4 gap-4 w-[1022px] mt-[40px]'>
-      {vacancies &&
-        vacancies.map((vacancy) => (
+      {filtered &&
+        filtered.map((vacancy: any) => (
           <Vacancy
+            key={vacancy.id}
             id={vacancy.id}
             title={vacancy.title}
             remote={vacancy.remote}
@@ -19,7 +50,6 @@ export default async function VacanciesList() {
             location={vacancy.location}
             publicationDate={vacancy.date_publication}
             externalId={vacancy.external_id}
-            key={vacancy.id}
           />
         ))}
     </div>
