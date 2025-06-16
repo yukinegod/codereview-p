@@ -13,8 +13,8 @@ type Props = {
   }
 }
 
-export default async function Question({ params }: Props) {
-  const id = await params.id
+export default function Question({ params }: Props) {
+  const id = params.id
   return (
     <div className='w-screen min-h-screen bg-white flex flex-col items-center pt-5'>
       <TopMenu type='arrow' buttonType='questionSimulator' href='/interviews' />
