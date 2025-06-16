@@ -1,13 +1,11 @@
 import Interviews from '@/pages/Interviews'
 
-type SearchParams = Promise<{ page?: string }>
+interface PageProps {
+  searchParams: {
+    page?: string
+  }
+}
 
-export default async function InterviewsPage({
-  searchParams,
-}: {
-  searchParams: SearchParams
-}) {
-  const { page } = await searchParams
-  const pageNumber = page
-  return <Interviews pageNumber={pageNumber} />
+export default async function InterviewsPage({ searchParams }: PageProps) {
+  return <Interviews pageNumber={searchParams.page} />
 }

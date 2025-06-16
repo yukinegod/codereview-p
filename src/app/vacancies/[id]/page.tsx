@@ -1,5 +1,11 @@
 import Vacancy from '@/pages/Vacancy'
 
-export default function VacancyPage({ params }: { params: { id: string } }) {
+interface PageParams {
+  params: {
+    id: string
+  }
+}
+
+export default async function VacancyPage({ params }: PageParams) {
   return <Vacancy params={params} />
 }
