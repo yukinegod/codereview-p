@@ -8,13 +8,10 @@ import QuestionTitle from '@/widgets/QuestionTitle/ui/QuestionTitle'
 import TopMenu from '@/widgets/TopMenu/ui/TopMenu'
 
 type Props = {
-  params: {
-    id: string
-  }
+  id: string
 }
 
-export default function Question({ params }: Props) {
-  const id = params.id
+export default function Question({ id }: Props) {
   return (
     <div className='w-screen min-h-screen bg-white flex flex-col items-center pt-5'>
       <TopMenu type='arrow' buttonType='questionSimulator' href='/interviews' />

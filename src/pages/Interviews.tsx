@@ -13,13 +13,11 @@ import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
 import { TOTAL_PAGES, ITEMS_PER_PAGE } from '@/shared/config/paginationMock'
 
 type Props = {
-  searchParams: {
-    page?: string
-  }
+  pageNumber?: string
 }
 
-export default async function Interviews({ searchParams }: Props) {
-  const currentPage = Number(await searchParams.page) || 1
+export default async function Interviews({ pageNumber }: Props) {
+  const currentPage = Number(pageNumber) || 1
   const skip = (currentPage - 1) * ITEMS_PER_PAGE
 
   return (
