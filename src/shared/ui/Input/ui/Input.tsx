@@ -40,7 +40,15 @@ export default function Input({
         >
           {label}
         </p>
-        {isRequired && <Image src={required} alt='Обязательное поле' />}
+        {isRequired && (
+          <Image
+            width={6}
+            height={6}
+            src={required}
+            alt='Обязательное поле'
+            className='w-[6px] h-[6px]'
+          />
+        )}
       </div>
       <div className='relative'>
         <input

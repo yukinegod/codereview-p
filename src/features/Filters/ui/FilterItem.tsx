@@ -1,13 +1,14 @@
 'use client'
 
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useRef, useState, useEffect } from 'react'
+import useCategoryStore from '@/entities/Category/model/useCategoryStore'
 import Switch from './Switch'
 import Image from 'next/image'
-import useCategoryStore from '@/entities/Category/model/useCategoryStore'
 import DropdownList from './DropdownList'
-import type { FilterType } from '../types/types'
 import arrowDown from '../../../../public/arrowDown.svg'
 import styles from './styles.module.css'
+import type { FilterType } from '../types/types'
 
 type Props = {
   label: string
@@ -16,15 +17,12 @@ type Props = {
   options?: string[]
 }
 
-export default function FilterItem({
-  label,
-  type = 'dropdown',
-  id,
-  options,
-}: Props) {
-  const { activeCategory } = useCategoryStore()
+export default function FilterItem({ label, type, id, options }: Props) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const { activeCategory } = useCategoryStore()
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -36,6 +34,22 @@ export default function FilterItem({
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  const handleSelect = (value: string) => {
+    const params = new URLSearchParams(searchParams?.toString())
+    const current = params.get(id)?.split(',') || []
+
+    if (current.includes(value)) {
+      const updated = current.filter((v) => v !== value)
+      updated.length ? params.set(id, updated.join(',')) : params.delete(id)
+    } else {
+      current.push(value)
+      params.set(id, current.join(','))
+    }
+
+    params.delete('page') // reset pagination
+    router.push(`/vacancies?${params.toString()}`)
+  }
 
   return (
     <div
@@ -53,7 +67,14 @@ export default function FilterItem({
       ) : (
         <Switch filterKey={id} />
       )}
-      {open && options && <DropdownList options={options} filterKey={id} />}
+      {open && options && (
+        <DropdownList
+          options={options}
+          filterKey={id}
+          onSelect={handleSelect}
+          selectedValues={searchParams?.get(id)?.split(',') || []}
+        />
+      )}
     </div>
   )
 }

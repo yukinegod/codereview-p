@@ -1,25 +1,37 @@
-import { cookies } from 'next/headers'
 import { API_URL } from '@/shared/config/config'
 
-type ApiResponse = {
-  vacancies: any[]
-  isAuth: boolean
+type Filters = {
+  location?: string
+  speciality?: string
+  source?: string
+  remote?: string
+  internship?: string
 }
 
-export async function fetchVacancies() {
-  try {
-    const res = await fetch(`${API_URL}/vacancies?limit=8`, {
-      cache: 'no-store',
-    })
+export async function fetchVacancies({
+  skip = 0,
+  limit = 10,
+  filters = {},
+}: {
+  skip?: number
+  limit?: number
+  filters?: Filters
+}) {
+  const params = new URLSearchParams()
 
-    const data = await res.json()
+  params.set('skip', skip.toString())
+  params.set('limit', limit.toString())
 
-    return {
-      vacancies: Array.isArray(data) ? data : [],
-      isAuth: false,
-    }
-  } catch (e) {
-    console.error(e)
-    return { vacancies: [], isAuth: false }
-  }
+  Object.entries(filters).forEach(([key, value]) => {
+    if (value) params.set(key, value)
+  })
+
+  const res = await fetch(`${API_URL}/vacancies/?${params.toString()}`, {
+    next: { revalidate: 60 },
+  })
+
+  if (!res.ok) throw new Error('Failed to fetch vacancies')
+
+  const vacancies = await res.json()
+  return { vacancies }
 }

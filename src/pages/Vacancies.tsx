@@ -10,14 +10,26 @@ import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
 import { TOTAL_PAGES, ITEMS_PER_PAGE } from '@/shared/config/paginationMock'
 
 type Props = {
-  page?: string
+  searchParams?: { [key: string]: string }
 }
 
-export default async function Vacancies({ page }: Props) {
-  const { vacancies } = await fetchVacancies()
+export default async function Vacancies({ searchParams }: Props) {
+  const page = Number(searchParams?.page || 1)
+  const skip = (page - 1) * ITEMS_PER_PAGE
 
-  const currentPage = Number(page) || 1
-  const skip = (currentPage - 1) * ITEMS_PER_PAGE
+  const filters: Record<string, string> = {
+    location: searchParams?.location || '',
+    speciality: searchParams?.speciality || '',
+    source: searchParams?.source || '',
+    remote: searchParams?.remote || '',
+    internship: searchParams?.internship || '',
+  }
+
+  const { vacancies } = await fetchVacancies({
+    skip,
+    limit: ITEMS_PER_PAGE,
+    filters,
+  })
 
   return (
     <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] overflow-x-hidden'>
@@ -26,7 +38,7 @@ export default async function Vacancies({ page }: Props) {
       <Filters />
       <VacanciesList vacancies={vacancies} />
       <Pagination
-        currentPage={currentPage}
+        currentPage={page}
         totalPages={TOTAL_PAGES}
         basePath='/vacancies'
       />

@@ -1,6 +1,6 @@
 export const VACANCIES_FILTERS = [
   {
-    id: 'category',
+    id: 'speciality',
     label: 'auto',
     type: 'dropdown',
     options: ['Python', 'Java', 'JavaScript', 'Data Science', 'QA', 'C#'],
@@ -9,19 +9,20 @@ export const VACANCIES_FILTERS = [
     id: 'source',
     label: 'Источник',
     type: 'dropdown',
-    options: ['HH', 'Habr Career', 'LinkedIn'],
+    options: ['Hh.ru', 'Habr Career', 'Linkedin'],
   },
   {
-    id: 'city',
+    id: 'location',
     label: 'Город',
     type: 'dropdown',
     options: [
-      'Москва',
-      'Санкт-Петербург',
-      'Нижний Новгород',
-      'Омск',
-      'Красноярск',
-      'Самара',
+      'Andrewchester',
+      'Williamsville',
+      'Saint Petersburg',
+      'Nizhny Novgorod',
+      'Omsk',
+      'Krasnoyarsk',
+      'Samara',
     ],
   },
   {

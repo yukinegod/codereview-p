@@ -5,6 +5,5 @@ type PageProps = {
 }
 
 export default async function VacanciesPage({ searchParams }: PageProps) {
-  const { page } = await searchParams
-  return <Vacancies page={page} />
+  return <Vacancies searchParams={await searchParams} />
 }

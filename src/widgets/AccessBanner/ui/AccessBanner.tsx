@@ -21,7 +21,7 @@ export default function AccessBanner({ type }: Props) {
 
   return (
     <div
-      className={`absolute bottom-0 w-full h-[320px] flex flex-col items-center shrink-0 pt-[129px] ${styles.banner}`}
+      className={`absolute bottom-0 w-full h-[320px] flex flex-col items-center shrink-0 pt-[129px] z-[50] ${styles.banner}`}
     >
       <p className='text-[#232325] text-[22px] font-bold leading-[26px] tracking-[-0.5px] mb-[10px]'>
         {type === 'vacancies'
