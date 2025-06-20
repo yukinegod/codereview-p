@@ -6,12 +6,14 @@ type Props = {
   image: string
   companyName: string
   location: string
+  url: string
 }
 
 export default function VacancySidebar({
   image,
   companyName,
   location,
+  url,
 }: Props) {
   return (
     <div className='flex flex-col w-[300px] h-[737px] shrink-0 gap-[10px]'>
@@ -19,6 +21,7 @@ export default function VacancySidebar({
         image={image}
         companyName={companyName}
         location={location}
+        url={url}
       />
       <SophiPromoBlock type='vacanciesSide' />
       <SimilarJobs />

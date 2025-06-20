@@ -1,0 +1,15 @@
+.banner {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.54) 0%,
+    #fff 54.52%
+  );
+}
+
+.button {
+  background: var(
+    --gradient-primary,
+    linear-gradient(85deg, #2093fe 0.83%, rgba(194, 23, 254, 0.9) 91.48%)
+  );
+  backdrop-filter: blur(4px);
+}

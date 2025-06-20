@@ -16,7 +16,10 @@ export default function QuestionItem({
   id,
 }: Props) {
   return (
-    <Link href={`interviews/${id}`} className='flex flex-col p-[15px] h-[76px]'>
+    <Link
+      href={`interviews/${id}`}
+      className='flex flex-col p-[15px] h-[76px] z-10'
+    >
       <p
         className={`text-black text-[18px] font-bold max-w-[990px] whitespace-nowrap overflow-hidden truncate cursor-pointer ${styles.question}`}
       >

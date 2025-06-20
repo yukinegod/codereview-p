@@ -16,7 +16,14 @@ export default function PolicyAndOffer() {
       >
         Политика конфиденциальности
       </Link>
-      <Image src={dot} alt='' aria-hidden='true' />
+      <Image
+        width={5}
+        height={5}
+        src={dot}
+        alt=''
+        aria-hidden='true'
+        className='w-[5px] h-[5px] my-auto'
+      />
       <Link
         href='/'
         className={`text-[#F6F6F6] text-[18px] ${styles.policyText}`}

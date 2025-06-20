@@ -52,7 +52,7 @@ export default function VacancyItem({
     return (
       <Link
         href={`/vacancies/${externalId}-${id}`}
-        className={`flex flex-col justify-between min-w-[502px] min-h-[204px] p-[15px] cursor-default rounded-[10px] bg-cover bg-no-repeat ${textColor}`}
+        className={`flex flex-col justify-between min-w-[502px] min-h-[204px] p-[15px] cursor-default rounded-[10px] bg-cover bg-no-repeat bg-[#F6F6F6] ${textColor}`}
         style={{ backgroundImage: `url(${backgroundImage})` }}
         onMouseEnter={() => setHoveredVacancyId(id)}
         onMouseLeave={() => setHoveredVacancyId(null)}
@@ -80,7 +80,7 @@ export default function VacancyItem({
     return (
       <Link
         href={`/vacancies/${externalId}-${id}`}
-        className='flex flex-col justify-between min-w-[502px] min-h-[204px] p-[15px] cursor-default rounded-[10px] bg-white'
+        className='flex flex-col justify-between min-w-[502px] min-h-[204px] p-[15px] cursor-default rounded-[10px] bg-[#F6F6F6]'
         onMouseEnter={() => setHoveredVacancyId(id)}
         onMouseLeave={() => setHoveredVacancyId(null)}
       >

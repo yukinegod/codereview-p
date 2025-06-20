@@ -40,7 +40,7 @@ export default function FilterItem({
   return (
     <div
       ref={ref}
-      className={`flex relative items-center justify-center px-[15px] py-3 select-none shrink-0 ${
+      className={`flex relative items-center justify-center px-[15px] py-3 select-none shrink-0 bg-[#F6F6F6] rounded-[12px] ${
         type === 'dropdown' ? 'gap-[5px]' : 'gap-[8px]'
       }`}
       onClick={() => type === 'dropdown' && setOpen((prev) => !prev)}

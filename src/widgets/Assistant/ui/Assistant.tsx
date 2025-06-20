@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import avatar from '../../../shared/assets/images/avatar.png'
+import avatar from '../../../shared/assets/images/avatar.svg'
 import styles from './styles.module.css'
 
 export default function Assistant() {

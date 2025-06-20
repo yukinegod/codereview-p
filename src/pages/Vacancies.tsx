@@ -20,7 +20,7 @@ export default async function Vacancies({ page }: Props) {
   const skip = (currentPage - 1) * ITEMS_PER_PAGE
 
   return (
-    <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] pb-[2px] overflow-x-hidden'>
+    <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] overflow-x-hidden'>
       <TopMenu type='secondary' buttonType='autoResponses' />
       <PageTitle title={VACANCIES_TITLE} subtitle={VACANCIES_SUBTITLE} />
       <Filters />

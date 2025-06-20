@@ -1,4 +1,6 @@
-import { fetchVacancyById } from '@/shared/api/vacancy/fetchVacancyById'
+'use client'
+
+import fetchVacancyById from '@/shared/api/vacancy/fetchVacancyById'
 import getVacancyId from '@/shared/utils/getVacancyId'
 import AboutVacancy from '@/widgets/AboutVacancy/ui/AboutVacancy'
 import CompanyInfo from '@/widgets/AboutVacancy/ui/CompanyInfo'
@@ -11,35 +13,34 @@ import {
   WE_OFFER,
 } from '@/widgets/AboutVacancy/config/config'
 import SophiPromoBlock from '@/shared/ui/SophiPromoBlock/SophiPromoBlock'
-import FooterAnimation from '@/widgets/FooterAnimation/ui/FooterAnimation'
 import Footer from '@/widgets/Footer/ui/Footer'
 import VacancySidebar from '@/widgets/VacancySidebar/ui/VacancySidebar'
 import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
 
 type Props = {
-  id: string
+  vacancy: any
 }
 
-export default async function Vacancy({ id }: Props) {
+export default function Vacancy({ vacancy }: Props) {
   // const vacancy = await fetchVacancyById(getVacancyId(id))
-  const vacancy = {
-    id: 1,
-    active: false,
-    external_id: 'aedc21ec-6b86-4b14-91ff-0d29c2b9e8aa',
-    company_name: 'Nixon, Perez and Cruz',
-    title: 'Make',
-    salary: '3364-10666',
-    location: 'Andrewchester',
-    speciality: 'Java',
-    internship: true,
-    remote: true,
-    url: 'https://morris-brown.org/',
-    description:
-      'Service language star appear. Church beautiful shake believe.\nDog bill argue explain since. Likely run must system policy himself. Like among leg herself next art.\nChoose nearly be.',
-    source: 'Hh.ru',
-    image: 'https://placekitten.com/429/901',
-    date_publication: '2025-05-11T09:56:18.791940',
-  }
+  // const vacancy = {
+  //   id: 1,
+  //   active: false,
+  //   external_id: 'aedc21ec-6b86-4b14-91ff-0d29c2b9e8aa',
+  //   company_name: 'Nixon, Perez and Cruz',
+  //   title: 'Make',
+  //   salary: '3364-10666',
+  //   location: 'Andrewchester',
+  //   speciality: 'Java',
+  //   internship: true,
+  //   remote: true,
+  //   url: 'https://morris-brown.org/',
+  //   description:
+  //     'Service language star appear. Church beautiful shake believe.\nDog bill argue explain since. Likely run must system policy himself. Like among leg herself next art.\nChoose nearly be.',
+  //   source: 'Hh.ru',
+  //   image: 'https://placekitten.com/429/901',
+  //   date_publication: '2025-05-11T09:56:18.791940',
+  // }
 
   if (!vacancy) return null
 
@@ -69,6 +70,7 @@ export default async function Vacancy({ id }: Props) {
           companyName='Bell Integrator'
           location='Москва'
           image='https://placekitten.com/402/602'
+          url={vacancy.url}
         />
       </div>
       <SeoKeysList type='vacancy' />

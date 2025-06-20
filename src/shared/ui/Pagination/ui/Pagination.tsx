@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
-import dots from '../../../../../public/dots.svg'
-import styles from './styles.module.css'
 import Image from 'next/image'
+import dots from '../../../../../public/dots.svg'
+import useAuthStore from '@/entities/User/model/useAuthStore'
+import styles from './styles.module.css'
 
 type Props = {
   currentPage: number
@@ -14,6 +17,10 @@ export default function Pagination({
   totalPages,
   basePath,
 }: Props) {
+  const { isAuth } = useAuthStore()
+
+  if (!isAuth) return null
+
   const getVisiblePages = () => {
     const pages: (number | string)[] = []
     const windowSize = 5
@@ -67,13 +74,7 @@ export default function Pagination({
             key={page}
             className='flex items-center justify-center w-[40px] h-[40px]'
           >
-            <Image
-              width={15}
-              height={15}
-              src={dots}
-              alt='dots icon'
-              className='flex items-center justify-center'
-            />
+            <Image src={dots} width={15} height={15} alt='dots icon' />
           </div>
         )
       )}

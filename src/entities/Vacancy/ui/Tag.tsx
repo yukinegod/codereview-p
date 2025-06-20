@@ -33,7 +33,13 @@ const data = {
 export default function Tag({ type, salary }: Props) {
   return (
     <div className='flex gap-[2px]'>
-      <Image src={data[type].icon} alt='vacancy icon' />
+      <Image
+        width={18}
+        height={18}
+        src={data[type].icon}
+        alt='vacancy icon'
+        className='w-[18px] h-[18px]'
+      />
       <p className={`text-[#232325] text-[16px] font-medium ${styles.text}`}>
         {data[type].text}
         {salary && minSalary(salary) + '    ₽'}

@@ -11,17 +11,19 @@ import Footer from '@/widgets/Footer/ui/Footer'
 import Pagination from '@/shared/ui/Pagination/ui/Pagination'
 import SeoKeysList from '@/shared/ui/SeoTags/ui/SeoKeysList'
 import { TOTAL_PAGES, ITEMS_PER_PAGE } from '@/shared/config/paginationMock'
+import fetchQuestions from '@/shared/api/questions/fetchQuestions'
 
 type Props = {
   pageNumber?: string
 }
 
 export default async function Interviews({ pageNumber }: Props) {
+  const questions = await fetchQuestions()
   const currentPage = Number(pageNumber) || 1
   const skip = (currentPage - 1) * ITEMS_PER_PAGE
 
   return (
-    <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] pb-[2px] overflow-x-hidden'>
+    <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] overflow-x-hidden'>
       <TopMenu type='secondary' buttonType='questionSimulator' />
       <PageTitle
         title={INTERVIEWS_TITLE_FIRST}
@@ -29,7 +31,7 @@ export default async function Interviews({ pageNumber }: Props) {
         subtitle={INTERVIEWS_SUBTITLE}
       />
       <Filters type='interviews' />
-      <QuestionList />
+      <QuestionList questions={questions} />
       <Pagination
         currentPage={currentPage}
         totalPages={TOTAL_PAGES}

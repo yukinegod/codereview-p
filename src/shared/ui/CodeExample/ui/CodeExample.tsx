@@ -32,7 +32,7 @@ export default function CodeExample({
       <div className='flex flex-col p-5 pt-[16px] bg-[#F9F9F9] rounded-[12px]'>
         <div className='flex items-center justify-between h-[20px]'>
           <p className='text-[#232325] text-[14px] font-medium'>{lang}</p>
-          <div className='flex items-center gap-[5px]'>
+          <div className='flex items-center gap-[5px] cursor-pointer'>
             <Image
               width={18}
               height={18}
@@ -40,13 +40,12 @@ export default function CodeExample({
               alt='copy icon'
               className='w-[18px] h-[18px]'
             />
-            <button
-              type='button'
+            <p
               className={`text-[#636469] text-[14px] font-medium ${styles.copy}`}
               onClick={() => navigator.clipboard.writeText(code)}
             >
               Копировать
-            </button>
+            </p>
           </div>
         </div>
         <div className='mt-[20px] overflow-x-auto'>

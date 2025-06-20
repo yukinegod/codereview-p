@@ -1,5 +1,5 @@
-export const API_URL = 'http://jobs.yourcodereview.com:8005'
-// export const API_URL = 'http://localhost:3001'
+// export const API_URL = 'http://jobs.yourcodereview.com:8005'
+export const API_URL = 'http://localhost:3001'
 
 export const VACANCIES_TITLE = 'Вакансии по'
 export const VACANCIES_SUBTITLE =

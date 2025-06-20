@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import arrowLink from '../../../../public/arrowLink.svg'
-import avatar from '../../../shared/assets/images/avatar.png'
+import yellowArrowLink from '../../../../public/yellowArrowLink.svg'
+import avatar from '../../../shared/assets/images/avatar.svg'
 import avatarWithoutBg from '../../../shared/assets/images/avatarWithoutBg.svg'
 import tryFree from '../../../../public/tryFree.svg'
 import tryFreeBlue from '../../../../public/tryFreeBlue.svg'
 import yellowGrid from '../../../../public/yellowGrid.svg'
+import yellowGrid2 from '../../../../public/yellowGrid2.svg'
 import whiteGrid from '../../../../public/whiteGrid.svg'
 import sophiCase from '../../../../public/sophiCase.svg'
 import sophiCode from '../../../../public/sophiCode.svg'
@@ -18,7 +20,12 @@ import styles from './styles.module.css'
 import Link from 'next/link'
 
 type Props = {
-  type: 'vacancy' | 'vacanciesSide' | 'interviews' | 'interviewsSide'
+  type:
+    | 'vacancy'
+    | 'vacanciesSide'
+    | 'interviews'
+    | 'interviewsSide'
+    | 'questions'
 }
 
 export default function SophiPromoBlock({ type }: Props) {
@@ -191,6 +198,45 @@ export default function SophiPromoBlock({ type }: Props) {
             className='w-[16px] h-[16px]'
           />
         </div>
+      </Link>
+    )
+  } else if (type === 'questions') {
+    return (
+      <Link
+        href='https://jobs.yourcodereview.com/ai/'
+        target='_blank'
+        rel='noopener noreferrer'
+        className={`relative flex items-center justify-between pl-[29px] pr-[32px] h-[80px] gap-[15px] rounded-[8px] select-none bg-[#FDF6E2] overflow-hidden`}
+      >
+        <Image src={yellowGrid2} alt='grid icon' className='absolute right-0' />
+        <Image
+          src={sophiCode}
+          alt='code icon'
+          className='absolute left-[403px] bottom-[7px]'
+        />
+        <Image
+          src={sophiCalendar}
+          alt='calendar icon'
+          className='absolute left-[602px] top-[10px]'
+        />
+        <Image
+          src={sophiCase}
+          alt='case icon'
+          className='absolute left-[801px] bottom-[7px]'
+        />
+        <p
+          className={`flex flex-col w-[542px] h-[40px] text-[#232325] text-[16px] font-bold leading-[20px] tracking-[-0.5px]`}
+        >
+          Софи собрала все вопросы — тренируйся и получай офферы быстрее!
+          <span className='text-[#8E521E]'>Попробовать бесплатно</span>
+        </p>
+        <Image
+          width={16}
+          height={16}
+          src={yellowArrowLink}
+          alt='link icon'
+          className='w-[16px] h-[16px]'
+        />
       </Link>
     )
   }

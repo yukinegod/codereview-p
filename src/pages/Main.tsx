@@ -7,7 +7,16 @@ import TopMenu from '@/widgets/TopMenu/ui/TopMenu'
 
 export default function Main() {
   return (
-    <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] pb-[2px] overflow-x-hidden'>
+    <div
+      className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] overflow-x-hidden'
+      style={{
+        backgroundImage: `url('./bgShades.svg')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top center',
+        backgroundSize: '100% 100%',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       <TopMenu />
       <Assistant />
       <CategorySwitcher />

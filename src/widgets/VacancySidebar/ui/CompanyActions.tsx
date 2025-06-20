@@ -7,12 +7,14 @@ type Props = {
   image: string
   companyName: string
   location: string
+  url: string
 }
 
 export default function CompanyActions({
   image,
   companyName,
   location,
+  url,
 }: Props) {
   return (
     <div className='flex flex-col w-[300px] h-[202px] rounded-[8px] p-[20px]'>
@@ -38,7 +40,7 @@ export default function CompanyActions({
         </div>
       </div>
       <OfferButton />
-      <AnswerButton />
+      <AnswerButton url={url} />
     </div>
   )
 }

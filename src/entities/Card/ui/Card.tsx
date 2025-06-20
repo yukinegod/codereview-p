@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import useHoverStore from '../model/useHoverStore'
 import vacancies from '../../../../public/vacancies.svg'
@@ -11,10 +12,9 @@ import itEvents from '../../../../public/itEvents.svg'
 import petProjects from '../../../../public/petProjects.svg'
 import recruitersContacts from '../../../../public/recruitersContacts.svg'
 import aiTools from '../../../../public/aiTools.svg'
-import grid from '../../../../public/grid.svg'
+import cardGrid from '../../../../public/cardGrid.svg'
 import type { CardType } from '../types/types'
 import styles from './styles.module.css'
-import Link from 'next/link'
 
 type Props = {
   type: CardType
@@ -41,7 +41,7 @@ export default function Card({ type, title, description, index }: Props) {
   return (
     <Link href={`/${type}`} title={`Перейти в раздел: ${title}`}>
       <motion.article
-        className={`relative flex flex-col justify-between min-w-[249px] h-[280px] max-h-[280px] pb-[20px] px-[20px] rounded-[6px] cursor-pointer select-none overflow-hidden
+        className={`relative flex flex-col justify-between min-w-[249px] h-[280px] max-h-[280px] pb-[20px] px-[20px] rounded-[6px] cursor-pointer bg-[#F6F6F6] select-none overflow-hidden
         ${type === 'tasks' ? `${styles.tasksBg}` : ''}
         ${type === 'itEvents' ? `${styles.itEventsBg}` : ''}`}
         onMouseEnter={() => setHoveredCardId(index)}
@@ -63,7 +63,7 @@ export default function Card({ type, title, description, index }: Props) {
             transform: 'rotate(45deg)',
           }}
         >
-          <Image src={grid} alt='Графическая сетка' />
+          <Image src={cardGrid} alt='Графическая сетка' />
         </motion.div>
 
         <motion.div

@@ -5,9 +5,9 @@ type ApiResponse = {
   isAuth: boolean
 }
 
-export async function fetchQuestions() {
+export default async function fetchQuestions() {
   try {
-    const res = await fetch(`${API_URL}/questions`, {
+    const res = await fetch(`${API_URL}/questions/?limit=7`, {
       cache: 'no-store',
     })
 

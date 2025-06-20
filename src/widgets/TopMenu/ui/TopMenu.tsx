@@ -33,7 +33,7 @@ export default function TopMenu({
       <nav
         role='navigation'
         aria-label='Главное меню'
-        className={`flex h-[56px] rounded-[18px] gap-5 py-[17px] px-5 select-none fixed z-50 ${styles.topBar}`}
+        className={`flex h-[56px] rounded-[18px] gap-5 py-[17px] px-5 select-none fixed z-[1000] bg-[rgba(255, 255, 255, 0.92)] ${styles.topBar}`}
       >
         <div className='flex items-center' aria-hidden='false'>
           <Logo type={type} />
@@ -51,7 +51,7 @@ export default function TopMenu({
       <nav
         role='navigation'
         aria-label='Навигация по разделу'
-        className='flex fixed z-50 gap-[10px] items-center'
+        className='flex fixed z-[1000] gap-[10px] items-center '
       >
         {type === 'arrow' && <BackArrow href={href || '/'} />}
 

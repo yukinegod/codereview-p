@@ -2,10 +2,10 @@
 
 import VacancyItem from '@/entities/Vacancy/ui/VacancyItem'
 import useFilterStore from '@/features/Filters/model/useFilterStore'
+import AccessBanner from '@/widgets/AccessBanner/ui/AccessBanner'
 
 export default function VacanciesList({ vacancies }: any) {
   const { filters } = useFilterStore()
-
   const groupFilters = filters.reduce(
     (acc: Record<string, string[]>, { key, value }) => {
       if (!acc[key]) acc[key] = []
@@ -35,7 +35,7 @@ export default function VacanciesList({ vacancies }: any) {
     : vacancies
 
   return (
-    <div className='grid grid-cols-2 grid-rows-4 gap-4 w-[1022px] mt-[40px]'>
+    <div className='relative grid grid-cols-2 grid-rows-4 gap-4 w-[1022px] mt-[40px]'>
       {filtered &&
         filtered.map((vacancy: any) => (
           <VacancyItem
@@ -52,6 +52,7 @@ export default function VacanciesList({ vacancies }: any) {
             externalId={vacancy.external_id}
           />
         ))}
+      <AccessBanner type='vacancies' />
     </div>
   )
 }

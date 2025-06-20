@@ -34,7 +34,13 @@ const images: Record<string, StaticImport> = {
 export default function PopupItem({ type, to, title }: Props) {
   return (
     <li role='menuitem' className='flex gap-[6px]'>
-      <Image src={images[type]} alt={`Иконка для ${title}`} />
+      <Image
+        width={20}
+        height={20}
+        src={images[type]}
+        alt={`Иконка для ${title}`}
+        className='w-[20px] h-[20px]'
+      />
       <Link
         href={to}
         className={`text-black text-[18px] ${styles.text}`}

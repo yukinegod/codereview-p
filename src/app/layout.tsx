@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Wix_Madefor_Display } from 'next/font/google'
 import './globals.css'
+import { AuthModalRenderer } from '@/widgets/AuthPopupRenderer/ui/AuthModalRenderer'
 
 const wixMadeforDisplay = Wix_Madefor_Display({
   variable: '--font-wix-madefor',
@@ -19,11 +20,11 @@ export const metadata: Metadata = {
     'IT',
     'Codereview',
   ],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+  // viewport: {
+  //   width: 'device-width',
+  //   initialScale: 1,
+  //   maximumScale: 1,
+  // },
   openGraph: {
     title: 'Codereview — IT-вакансии и стажировки',
     description:
@@ -49,6 +50,7 @@ export default function RootLayout({
     <html lang='ru' className={`${wixMadeforDisplay.variable} antialiased`}>
       <body>
         <main>{children}</main>
+        <AuthModalRenderer />
       </body>
     </html>
   )
