@@ -1,4 +1,3 @@
-import formatDate from '@/shared/utils/formatDate'
 import styles from './styles.module.css'
 
 type Props = {
@@ -7,10 +6,12 @@ type Props = {
 
 export default function VacancyDate({ publicationDate }: Props) {
   return (
-    <p
+    <time
       className={`flex items-end text-[#86888e] text-[16px] font-medium ${styles.date}`}
+      dateTime={new Date(publicationDate).toISOString()}
+      itemProp='datePosted'
     >
-      {formatDate(publicationDate)}
-    </p>
+      {new Date(publicationDate).toLocaleDateString('ru-RU')}
+    </time>
   )
 }

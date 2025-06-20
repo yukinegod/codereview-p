@@ -32,7 +32,7 @@ export default async function Vacancies({ searchParams }: Props) {
   })
 
   return (
-    <div className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] overflow-x-hidden'>
+    <main className='w-screen h-screen bg-white flex flex-col items-center pt-[20px] overflow-x-hidden'>
       <TopMenu type='secondary' buttonType='autoResponses' />
       <PageTitle title={VACANCIES_TITLE} subtitle={VACANCIES_SUBTITLE} />
       <Filters />
@@ -44,6 +44,6 @@ export default async function Vacancies({ searchParams }: Props) {
       />
       <SeoKeysList type='vacancies' />
       <Footer />
-    </div>
+    </main>
   )
 }

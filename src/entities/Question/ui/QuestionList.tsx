@@ -9,7 +9,10 @@ type Props = {
 
 export default function QuestionList({ questions }: Props) {
   return (
-    <div className='relative flex flex-col gap-[10px] mt-[25px] w-[1020px]'>
+    <section
+      className='relative flex flex-col gap-[10px] mt-[25px] w-[1020px]'
+      itemScope
+    >
       {questions &&
         questions.map((question: any, index: number) => (
           <Fragment key={question.id || index}>
@@ -23,6 +26,6 @@ export default function QuestionList({ questions }: Props) {
           </Fragment>
         ))}
       <AccessBanner type='interviews' />
-    </div>
+    </section>
   )
 }

@@ -1,11 +1,17 @@
 import styles from './styles.module.css'
 
-export default function PublicationDate() {
+type Props = {
+  date: string
+}
+
+export default function PublicationDate({ date }: Props) {
   return (
-    <p
+    <time
       className={`text-[#636469] text-[18px] font-medium ${styles.publicationDate}`}
+      dateTime={new Date(date).toISOString()}
+      itemProp='datePosted'
     >
-      Опубликовано 16.04.2025
-    </p>
+      Опубликовано {new Date(date).toLocaleDateString()}
+    </time>
   )
 }

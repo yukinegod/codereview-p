@@ -8,6 +8,7 @@ type PageProps = {
 
 export default async function VacancyPage({ params }: PageProps) {
   const { id } = await params
+  console.log(id)
   const vacancy = await fetchVacancyById(getVacancyId(id))
   return <Vacancy vacancy={vacancy} />
 }

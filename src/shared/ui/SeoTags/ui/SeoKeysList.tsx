@@ -16,54 +16,71 @@ type Props = {
 export default function SeoKeysList({ type }: Props) {
   const { activeCategory } = useCategoryStore()
 
-  if (type === 'vacancies') {
-    return (
-      <div className='flex items-center justify-center flex-wrap gap-2 w-full mt-[60px] max-w-[1020px] mb-5'>
-        {VACANCIES_SEO_TAGS.default.map((tag) => (
-          <SeoKeyItem key={`vac-${tag.id}`} label={tag.label} />
-        ))}
-        {VACANCIES_SEO_TAGS.withFilter
-          .filter((tag) => tag.filter === activeCategory)
-          .map((tag) => (
-            <SeoKeyItem key={`vac-filter-${tag.id}`} label={tag.label} />
-          ))}
-      </div>
-    )
-  } else if (type === 'interviews') {
-    return (
-      <div className='flex items-center justify-center flex-wrap gap-2 w-full mt-[60px] max-w-[1020px] mb-5'>
-        {INTERVIEWS_SEO_TAGS.default.map((tag) => (
-          <SeoKeyItem key={`int-${tag.id}`} label={tag.label} />
-        ))}
-        {INTERVIEWS_SEO_TAGS.withFilter
-          .filter((tag) => tag.filter === activeCategory)
-          .map((tag) => (
-            <SeoKeyItem key={`int-filter-${tag.id}`} label={tag.label} />
-          ))}
-      </div>
-    )
-  } else if (type === 'vacancy') {
-    return (
-      <div className='flex items-center justify-center flex-wrap gap-2 w-full mt-[60px] max-w-[1020px] mb-5'>
-        {VACANCY_SEO_TAGS.default.map((tag) => (
-          <SeoKeyItem key={`vacancy-${tag.id}`} label={tag.label} />
-        ))}
-        {VACANCY_SEO_TAGS.withFilter
-          .filter((tag) => tag.filter === activeCategory)
-          .map((tag) => (
-            <SeoKeyItem key={`vacancy-filter-${tag.id}`} label={tag.label} />
-          ))}
-      </div>
-    )
-  } else if (type === 'question') {
-    return (
-      <div className='flex items-center justify-center flex-wrap gap-2 w-full mt-[60px] max-w-[1020px] mb-5'>
-        {QUESTION_SEO_TAGS.default.map((tag) => (
-          <SeoKeyItem key={`vacancy-${tag.id}`} label={tag.label} />
-        ))}
-      </div>
-    )
+  const getTags = () => {
+    switch (type) {
+      case 'vacancies':
+        return (
+          <>
+            {VACANCIES_SEO_TAGS.default.map((tag) => (
+              <SeoKeyItem key={`vac-${tag.id}`} label={tag.label} />
+            ))}
+            {VACANCIES_SEO_TAGS.withFilter
+              .filter((tag) => tag.filter === activeCategory)
+              .map((tag) => (
+                <SeoKeyItem key={`vac-filter-${tag.id}`} label={tag.label} />
+              ))}
+          </>
+        )
+      case 'interviews':
+        return (
+          <>
+            {INTERVIEWS_SEO_TAGS.default.map((tag) => (
+              <SeoKeyItem key={`int-${tag.id}`} label={tag.label} />
+            ))}
+            {INTERVIEWS_SEO_TAGS.withFilter
+              .filter((tag) => tag.filter === activeCategory)
+              .map((tag) => (
+                <SeoKeyItem key={`int-filter-${tag.id}`} label={tag.label} />
+              ))}
+          </>
+        )
+      case 'vacancy':
+        return (
+          <>
+            {VACANCY_SEO_TAGS.default.map((tag) => (
+              <SeoKeyItem key={`vacancy-${tag.id}`} label={tag.label} />
+            ))}
+            {VACANCY_SEO_TAGS.withFilter
+              .filter((tag) => tag.filter === activeCategory)
+              .map((tag) => (
+                <SeoKeyItem
+                  key={`vacancy-filter-${tag.id}`}
+                  label={tag.label}
+                />
+              ))}
+          </>
+        )
+      case 'question':
+        return (
+          <>
+            {QUESTION_SEO_TAGS.default.map((tag) => (
+              <SeoKeyItem key={`question-${tag.id}`} label={tag.label} />
+            ))}
+          </>
+        )
+      default:
+        return null
+    }
   }
 
-  return null
+  return (
+    <section
+      aria-label='SEO ключевые слова'
+      className='flex items-center justify-center flex-wrap gap-2 w-full mt-[60px] max-w-[1020px] mb-5'
+      itemScope
+      itemType='https://schema.org/ItemList'
+    >
+      {getTags()}
+    </section>
+  )
 }

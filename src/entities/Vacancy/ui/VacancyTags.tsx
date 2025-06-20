@@ -14,10 +14,10 @@ export default function VacancyTags({
   type = 'preview',
 }: Props) {
   return (
-    <div className='flex items-center gap-3 mt-[10px]'>
+    <div className='flex items-center gap-3 mt-[10px]' itemProp='jobBenefits'>
       {remote ? <Tag type='remote' /> : <Tag type='office' />}
       {internship && <Tag type='internship' />}
-      <Tag type='salary' salary={salary} />
+      {salary && <Tag type='salary' salary={salary} />}
     </div>
   )
 }

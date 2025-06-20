@@ -24,6 +24,10 @@ export default function VacancyImage({ logoLink }: Props) {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
+      itemProp='logo'
+      itemScope
+      itemType='https://schema.org/ImageObject'
+      aria-label='Логотип компании'
     />
   )
 }

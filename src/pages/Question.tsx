@@ -13,10 +13,10 @@ type Props = {
 
 export default function Question({ id }: Props) {
   return (
-    <div className='w-screen min-h-screen bg-white flex flex-col items-center pt-5'>
+    <main className='w-screen min-h-screen bg-white flex flex-col items-center pt-5'>
       <TopMenu type='arrow' buttonType='questionSimulator' href='/interviews' />
 
-      <div className='mt-[176px] w-[1020px] flex gap-[60px]'>
+      <article className='mt-[176px] w-[1020px] flex gap-[60px]'>
         {/* левая колонка */}
         <div className='w-[660px] flex flex-col'>
           <QuestionTitle />
@@ -68,13 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         {/* правая колонка */}
-        <div className='flex flex-col gap-[10px] w-[300px] h-[463px] bg-white'>
+        <aside className='flex flex-col gap-[10px] w-[300px] h-[463px] bg-white'>
           <SophiPromoBlock type='interviewsSide' />
           <NextQuestionButton currentQuestionId={Number(id)} />
-        </div>
-      </div>
+        </aside>
+      </article>
       <SeoKeysList type='question' />
       <Footer />
-    </div>
+    </main>
   )
 }

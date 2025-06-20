@@ -16,7 +16,7 @@ export default function VacancySidebar({
   url,
 }: Props) {
   return (
-    <div className='flex flex-col w-[300px] h-[737px] shrink-0 gap-[10px]'>
+    <aside className='flex flex-col w-[300px] h-[737px] shrink-0 gap-[10px]'>
       <CompanyActions
         image={image}
         companyName={companyName}
@@ -25,6 +25,6 @@ export default function VacancySidebar({
       />
       <SophiPromoBlock type='vacanciesSide' />
       <SimilarJobs />
-    </div>
+    </aside>
   )
 }

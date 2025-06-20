@@ -46,7 +46,7 @@ export default function VacancyItem({
   customLogo,
   customIcon,
 }: Props) {
-  const { hoveredVacancyId, setHoveredVacancyId } = useHoverStore()
+  const { setHoveredVacancyId } = useHoverStore()
 
   if (type === 'custom') {
     return (

@@ -6,10 +6,11 @@ type Props = {
 
 export default function SeoKeyItem({ label }: Props) {
   return (
-    <p
+    <span
       className={`text-[#232325] text-[14px] font-medium mx-2 ${styles.tag} bg-[#F6F6F6] rounded-[6px]`}
+      itemProp='keywords'
     >
       {label}
-    </p>
+    </span>
   )
 }
